@@ -30,3 +30,18 @@ legend("topright"
 
 dev.copy(png, file = "plot3.png", width = 480, height = 480)
 dev.off()
+
+#assignment turned in with code above, but legend was truncated.  Code below to fix that
+png(filename = "plot3b.png", width = 480, height = 480)
+plot(data2$Rtime, data2$Sub_metering_1, type="n"
+     ,xlab=""
+     ,ylab="Energy sub metering" )
+
+lines(data2$Rtime, data2[,7], col = "black" )
+lines(data2$Rtime, data2[,8], col = "red")
+lines(data2$Rtime, data2[,9], col = "blue")
+legend("topright"
+       , col=c("black","red","blue")
+       , legend=names(data2[7:9])
+       , lty=c(1,1))
+dev.off()
